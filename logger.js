@@ -14,7 +14,7 @@ loggerFactory = function(name){
         var logfn;
         var logArgs   = [];
         var logLevels = ['log', 'debug', 'warn', 'error', 'info'];
-        var padLength = 20;
+        var padLength = 30;
         var bind      = Function.prototype.bind;
         var noop      = function() {}
         var chalk     = Meteor.npmRequire('chalk');
