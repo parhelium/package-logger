@@ -17,7 +17,7 @@ loggerFactory = function(name){
         var padLength = 30;
         var bind      = Function.prototype.bind;
         var noop      = function() {}
-        var chalk     = Meteor.npmRequire('chalk');
+        var chalk     = Npm.require('chalk');
         chalk.enabled = true;
 
         var colors    = [chalk.green.bold, chalk.gray, chalk.magenta, chalk.red, chalk.blue];
