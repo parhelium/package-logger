@@ -1,6 +1,6 @@
 Package.describe({
   name:'parhelium:logger',
-  version: "1.0.0"
+  version: "1.0.1"
 });
 
 Package.onUse(function(api) {
@@ -8,6 +8,7 @@ Package.onUse(function(api) {
   Npm.depends({
         "chalk": "0.5.1"
   });
+  api.use('underscore', ['client', 'server']);
   api.imply('parhelium:bows');
   api.addFiles('logger.js');
   api.export('loggerFactory',['client','server']);

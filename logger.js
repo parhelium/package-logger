@@ -7,13 +7,24 @@ var logr = function(){
     fn(arguments);
 };
 
-loggerFactory = function(name){
+var logLevels = ['log', 'debug', 'warn', 'error', 'info'];
+
+loggerFactory = function( name, disabled ){
+    if( disabled ) {
+        console && console.log && console.log("Logger for " + name + " is disabled.")
+        var empty = {};
+        logLevels.forEach(function (f, index, array) {
+            empty[f] = function(){};
+        });
+        return empty;
+    }
+
     if(Meteor.isClient){
         return bows(name);
     }else{
         var logfn;
         var logArgs   = [];
-        var logLevels = ['log', 'debug', 'warn', 'error', 'info'];
+        
         var padLength = 30;
         var bind      = Function.prototype.bind;
         var noop      = function() {}
